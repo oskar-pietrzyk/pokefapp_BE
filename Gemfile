@@ -30,4 +30,10 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
+  gem 'rspec_junit_formatter'
+end
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
