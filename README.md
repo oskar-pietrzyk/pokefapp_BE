@@ -41,4 +41,4 @@ POKEMON FIGHT APP - web turn-based game in the world of pokemon. Gameplay itself
 
 ## Frontend
 
-[There will be the link for the FE repo](https://github.com/oskar-pietrzyk/pokefapp_BE)
+[Frontend repository with setup](https://github.com/oskar-pietrzyk/pokefapp_fe)
