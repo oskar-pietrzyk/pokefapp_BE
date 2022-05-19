@@ -127,6 +127,7 @@ jobs:
   deploy_to_heroku:
     <<: *defaults
     steps:
+      - checkout
       - heroku/deploy-via-git
 
 workflows:
