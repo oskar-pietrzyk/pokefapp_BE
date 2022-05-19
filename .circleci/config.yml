@@ -7,6 +7,7 @@ version: 2.1
 
 orbs:
   ruby: circleci/ruby@0.1.2 
+  heroku: circleci/heroku@1.2.6
 
 jobs:
   checkout_code:
@@ -123,6 +124,11 @@ jobs:
           name: Run rubocop
           command: rubocop
 
+  deploy_to_heroku:
+    <<: *defaults
+    steps:
+      - heroku/deploy-via-git
+
 workflows:
   version: 2.1
   build-and-deploy:
@@ -145,3 +151,10 @@ workflows:
             - run_bundle_audit
             - run_bundle_brakeman
             - run_rubocop
+      - deploy_to_heroku:
+          requires:
+            - run_rspec
+          filters:
+            branches:
+              only:
+                - master  
