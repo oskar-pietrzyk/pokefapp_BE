@@ -1,0 +1,19 @@
+/*
+*= require grape_swagger_rails/reset
+*= require grape_swagger_rails/screen
+*= require_self
+*/
+
+.swagger-section #header {
+  background-color: rgb(76, 104, 255) !important;
+}
+
+.swagger-section .swagger-ui-wrap a {
+  color: rgb(76, 104, 255);
+}
+
+.swagger-section .swagger-ui-wrap .markdown pre {
+  font-size: 13px;
+  overflow: auto;
+  background-color: #eff0f1;
+}
