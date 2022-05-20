@@ -12,6 +12,16 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 
+# grape with swagger
+gem 'grape', '~> 1.6', '>= 1.6.2'
+gem 'grape-swagger', '~> 1.4', '>= 1.4.2'
+gem 'grape-swagger-rails', '~> 0.3.1'
+gem 'swagger-docs'
+
+# jsonapi
+gem 'grape-jsonapi-resources'
+gem 'jsonapi-resources'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
