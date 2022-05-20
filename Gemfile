@@ -19,8 +19,8 @@ gem 'grape-swagger-rails', '~> 0.3.1'
 gem 'swagger-docs'
 
 # jsonapi
-gem 'grape-jsonapi-resources'
-gem 'jsonapi-resources'
+gem 'grape-jsonapi-resources', '~> 0.0.7'
+gem 'jsonapi-resources', '~> 0.10.7'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
