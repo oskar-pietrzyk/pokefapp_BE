@@ -273,10 +273,10 @@ DEPENDENCIES
   factory_bot_rails
   faker
   grape (~> 1.6, >= 1.6.2)
-  grape-jsonapi-resources
+  grape-jsonapi-resources (~> 0.0.7)
   grape-swagger (~> 1.4, >= 1.4.2)
   grape-swagger-rails (~> 0.3.1)
-  jsonapi-resources
+  jsonapi-resources (~> 0.10.7)
   listen (~> 3.3)
   pg (~> 1.1)
   pry (~> 0.13.1)

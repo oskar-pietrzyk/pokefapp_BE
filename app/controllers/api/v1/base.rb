@@ -7,7 +7,6 @@ module API
 
       version 'v1', using: :path, vendor: 'pokefapp'
       format :json
-      formatter :json, Grape::Formatter::JSONAPIResources
       content_type :json, V1::Constants::CONTENT_TYPE
 
       mount API::V1::Welcome::Base
