@@ -10,6 +10,7 @@ module API
       content_type :json, V1::Constants::CONTENT_TYPE
 
       mount API::V1::Welcome::Base
+      mount API::V1::PokemonMasterRanking::Base
     end
   end
 end
