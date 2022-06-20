@@ -22,6 +22,10 @@ gem 'swagger-docs'
 gem 'grape-jsonapi-resources', '~> 0.0.7'
 gem 'jsonapi-resources', '~> 0.10.7'
 
+# authentication & authorization
+gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'doorkeeper', '~> 5.5', '>= 5.5.4'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'

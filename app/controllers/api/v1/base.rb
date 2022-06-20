@@ -11,6 +11,7 @@ module API
 
       mount API::V1::Welcome::Base
       mount API::V1::PokemonMasterRanking::Base
+      mount API::V1::Users::Base
     end
   end
 end
