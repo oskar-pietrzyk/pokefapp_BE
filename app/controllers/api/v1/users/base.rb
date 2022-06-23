@@ -9,6 +9,10 @@ module API
         resource :users do
           mount Create
         end
+
+        resource :login do
+          mount Login
+        end
       end
     end
   end

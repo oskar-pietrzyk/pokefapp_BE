@@ -11,7 +11,7 @@ module API
       error!({ message: 'Not authenticated' }, 401)
     end
 
-    def authenticate_user!
+    def authenticate_by_token!
       unauthorized_error unless authenticated_user?
     end
 
@@ -19,12 +19,9 @@ module API
       doorkeeper_token.present?
     end
 
-    def current_user
-      doorkeeper_token.present? ? doorkeeper_user : nil
-    end
-
-    def doorkeeper_user
-      User.find_by(id: doorkeeper_token.resource_owner_id) || User.new
+    def authenticate_user!(params)
+      user = User.find_for_authentication(email: params[:email])
+      user.try(:valid_password?, params[:password]) ? user : unauthorized_error
     end
   end
 end

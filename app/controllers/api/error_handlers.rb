@@ -6,7 +6,12 @@ module API
 
     included do
       rescue_from ActiveRecord::RecordInvalid do |e|
-        error!(e.record.errors.full_messages, 422)
+        error_messages = {}
+        e.record.errors.each do |error|
+          error_messages.merge!(error.attribute.to_s => error.message)
+        end
+
+        error!(error_messages, 422)
       end
 
       rescue_from Grape::Exceptions::ValidationErrors do |e|
