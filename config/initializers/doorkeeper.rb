@@ -9,7 +9,7 @@ Doorkeeper.configure do
     User.authenticate(params[:email], params[:password])
   end
 
-  grant_flows %w[authorization_code client_credentials]
+  grant_flows %w[authorization_code client_credentials password]
 
   skip_authorization do
     true
