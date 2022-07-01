@@ -86,12 +86,3 @@ class CreateDoorkeeperTables < ActiveRecord::Migration[6.1]
     # add_foreign_key :oauth_access_tokens, <model>, column: :resource_owner_id
   end
 end
-
-
-
-
-curl -F grant_type=client_credentials \
--F client_id=6Nqk2R9LR1tI-R2qJgW5KFcHlmApwoT9DN77anbDjG0 \
--F client_secret=4ouXCldzMzNw114Fq5OkcirpxfQpZOx6yRPAZuU0n6A \
--F scope=public \
--X POST http://localhost:3000/oauth/token

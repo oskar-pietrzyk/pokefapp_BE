@@ -4,7 +4,7 @@ module API
   module V1
     module Users
       class Create < API::V1::Users::Base
-        desc 'Create a user'
+        desc 'Create an user'
 
         params do
           requires :username, type: String, desc: 'Username'
@@ -13,9 +13,13 @@ module API
           requires :password_confirmation, type: String, desc: 'Password confirmation'
         end
 
+        after do
+          header 'Authorization', @user.allowlisted_jwts.last.jti
+        end
+
         post do
-          user = UserServices::Create.call(params)
-          render user
+          @user = UserServices::Create.call(params)
+          render @user
         end
       end
     end

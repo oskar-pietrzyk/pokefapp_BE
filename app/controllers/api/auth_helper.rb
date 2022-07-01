@@ -21,7 +21,22 @@ module API
 
     def authenticate_user!(params)
       user = User.find_for_authentication(email: params[:email])
-      user.try(:valid_password?, params[:password]) ? user : unauthorized_error
+      reactivate_token(user) unless active_token(user)
+      
+      user.try(:valid_password?, params[:password]) && active_token(user) ? user : unauthorized_error
+    end
+
+    def revoke_token_if_expired(user)
+      user.allowlisted_jwts.last.exp > DateTime.now ? true : user.allowlisted_jwts.last.destroy!
+    end
+
+    def active_token(user)
+      user.allowlisted_jwts.present? ? true : false
+    end
+
+    def reactivate_token(user)
+      @token, payload = Warden::JWTAuth::UserEncoder.new.call(user, :user, nil)
+      user.on_jwt_dispatch(@token, payload)
     end
   end
 end

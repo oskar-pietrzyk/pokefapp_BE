@@ -24,6 +24,7 @@ gem 'jsonapi-resources', '~> 0.10.7'
 
 # authentication & authorization
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'devise-jwt'
 gem 'doorkeeper', '~> 5.5', '>= 5.5.4'
 
 group :development, :test do

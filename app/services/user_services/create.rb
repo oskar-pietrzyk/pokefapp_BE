@@ -9,6 +9,10 @@ module UserServices
     def call
       user = User.new(params)
       user.save!
+      @token, payload = Warden::JWTAuth::UserEncoder.new.call(user, :user, nil)
+      user.on_jwt_dispatch(@token, payload)
+
+      user
     end
 
     private
